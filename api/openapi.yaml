@@ -1,0 +1,110 @@
+openapi: 3.0.2
+info:
+  contact:
+    email: spilab.uex@gmail.com
+    name: Heatmap
+    url: http://spilab.es/
+  description: This api provides us with the set of positions and frequencies of the
+    different connected devices to generate a heat map.
+  termsOfService: http://spilab.es/
+  title: Covid19 PERCOM
+  version: "3.0"
+servers:
+- url: /
+tags:
+- name: Map
+paths:
+  /risk:
+    get:
+      operationId: getRiskPercentage
+      parameters:
+      - description: device
+        explode: true
+        in: query
+        name: device
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                example: 36.5
+                format: double
+                title: Risk of contagion
+                type: number
+          description: Successful response
+        204:
+          content:
+            text/plain:
+              schema:
+                title: No content
+                type: string
+          description: No content
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+      summary: Get the locations frequency processed in the different connected devices.
+      tags:
+      - Map
+      x-swagger-router-controller: Map
+components:
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            example: 36.5
+            format: double
+            title: Risk of contagion
+            type: number
+      description: Successful response
+    201:
+      content:
+        text/plain:
+          schema:
+            title: Posted
+            type: string
+      description: Posted
+    204:
+      content:
+        text/plain:
+          schema:
+            title: No content
+            type: string
+      description: No content
+    404:
+      content:
+        text/plain:
+          schema:
+            example: Not found
+            title: Endpoint not found
+            type: string
+      description: Not found response
+  schemas:
+    LocationsFrequency:
+      items:
+        $ref: '#/components/schemas/LocationFrequency'
+      type: array
+    LocationFrequency:
+      properties:
+        latitude:
+          example: 38.48492
+          format: double
+          type: number
+        longitude:
+          example: -6.2548987
+          format: double
+          type: number
+        frequency:
+          example: 6
+          format: int64
+          type: integer
+      type: object
