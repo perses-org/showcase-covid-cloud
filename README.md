@@ -20,7 +20,7 @@ var serverPort = process.env.PORT || <port>;
 ```
 
 
-### Running the server
+## Running the server
 **[NodeJS](https://nodejs.org/) must be installed**. 
 To run the server, run:
 ```
