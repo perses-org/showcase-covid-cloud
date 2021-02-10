@@ -1,7 +1,7 @@
 [![10.5281/zenodo.4476371](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4476371-blue.svg)](https://zenodo.org/record/4476371)
 
 # Cloud server companion for COVID showcase
-#### Deployment Instructions
+## Deployment Instructions
 
 
 **Create MQTT server:** It is necessary to create an MQTT server for the connection between the server-side and the mobile-side, [tutorial](https://www.vultr.com/docs/how-to-install-mosquitto-mqtt-broker-server-on-ubuntu-16-04). **You can also connect to an active MQTT server,** [Active MQTT server](https://www.hivemq.com/public-mqtt-broker/).
