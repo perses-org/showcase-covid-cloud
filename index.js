@@ -22,11 +22,11 @@ var topic='Covid19PERCOMDevices';
 
 
 //TODO: Change for your configuration
-var serverPort = process.env.PORT ||  8080;
+var serverPort = process.env.PORT ||  80;
 
 //TODO: Change for your mqtt server
-const mqttApp = mqtt.connect("mqtt://108.129.48.139:1883");
-
+//const mqttApp = mqtt.connect("mqtt://108.129.48.139:1883");
+const mqttApp = mqtt.connect("mqtt://broker.hivemq.com:1883");
 
 
 exports.topic=topic;
@@ -76,8 +76,6 @@ mqttApp.on('message', function (topic, message) {
         var body=JSON.parse(message);
                sender.sendRequest(body.params, body.resource, body.method, body.sender,"mqtt")
     }
-
-    
     
     if(topic=='Covid19PERCOM'){
         dataManager.insertData(JSON.parse(message))

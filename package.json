@@ -16,7 +16,6 @@
     "body-parser": "^1.18.3",
     "express": "^4.17.0",
     "js-yaml": "^3.3.0",
-    "mosca": "^2.x",
     "mqtt": "^2.18.8",
     "oas-tools": "^2.1.5"
   }

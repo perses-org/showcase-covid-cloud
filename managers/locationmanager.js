@@ -76,7 +76,7 @@ exports.buildHeatMap= function(locations){
 exports.buildHeatMapV2= function(locations){
     
     //Generate heatmap
-    var hmm = new Map(); 
+    var hmm = new Map(); // HeatMapMatrix[latitude][longitude]
 
     locations.map(blurLocation).forEach((location) => {
         
@@ -85,6 +85,9 @@ exports.buildHeatMapV2= function(locations){
                 hmm.get(location.latitude).set(location.longitude,
                     hmm.get(location.latitude).get(location.longitude) + location.frequency);
             }
+            /* else {
+                hmm.get(location.latitude).set(location.longitude, location.frequency);
+            } */
         }
         else {
             hmm.set(location.latitude, new Map([

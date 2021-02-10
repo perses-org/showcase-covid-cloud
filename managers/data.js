@@ -41,13 +41,18 @@ exports.getResult = function(id,method,params){
     else{
         if(method=="getHeatmaps"){
 
+            //Calculate risk of contagion
+
+
             res=manager.convertLocationFrequency(res)
             res=manager.aggregateLocations(res)
+
+
         }
         
 
     }
-        
+        //Process the aggregated information
 
 
     deleteRequest(id)
